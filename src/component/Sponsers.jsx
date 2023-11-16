@@ -6,7 +6,7 @@ function Sponsers() {
             <p className='text-lg line-clamp-2'>Trusted by over 15,000 companies and millions of learners around the world</p>
             <div className='grid px-10 grid-flow-row-dense gap-5  items-center justify-items-center grid-cols-4 lg:grid-cols-8 p-5 '>
                 <div>
-                    <img src="https://rebrand.ly/ericsson" alt="https://rebrand.ly/ericsson" className='' />
+                    <img src="https://rebrand.ly/ericsson" alt="https://rebrand.ly/ericsson"  />
                 </div>
                 <div>
                     <img src="https://rebrand.ly/partner-logos" alt="https://rebrand.ly/partner-logos" />
