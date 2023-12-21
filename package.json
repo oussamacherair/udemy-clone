@@ -1,6 +1,6 @@
 {
   "name": "udemy-clone",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -11,14 +11,17 @@
   },
   "dependencies": {
     "@material-tailwind/react": "^2.1.4",
+    "@tanstack/react-query": "^5.12.2",
+    "@tanstack/react-query-devtools": "^5.13.5",
     "axios": "^1.6.2",
-    "cors": "^2.8.5",
-    "express": "^4.18.2",
-    "http-proxy-middleware": "^2.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",
-    "react-responsive-carousel": "^3.2.23"
+    "react-multi-carousel": "^2.8.4",
+    "react-number-format": "^5.3.1",
+    "react-responsive-carousel": "^3.2.23",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
@@ -31,7 +34,6 @@
     "eslint-plugin-react-refresh": "^0.4.3",
     "postcss": "^8.4.31",
     "tailwindcss": "^3.3.5",
-    "vite": "^4.5.0",
-    "vite-plugin-mkcert": "^1.10.1"
+    "vite": "^5.0.4"
   }
 }
