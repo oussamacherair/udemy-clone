@@ -116,7 +116,7 @@ function Review({ content, created, user, rating, course }) {
         <div className='bg-white shadow-md mx-2 border-b-8 border-[#5624d0] py-5 px-9 min-h-52'>
             <div className='relative flex items-center'>     
                 <div className={nameIn.length>1?'h-12 w-12 flex justify-center items-center border-2 mx-2 border-[#5624d0] rounded-full':'hidden'}>
-                    <span>{nameIn.length > 1 ? name[0].charAt(0) + ' ' + nameIn[1].charAt(0) : ''}</span>
+                    <span>{nameIn.length > 1 ? name[0].charAt(0) + nameIn[1].charAt(0) : ''}</span>
                 </div>
                 <div className='text-[#5624d0]'>
                     <span>{nameIn.length > 1 ? name + ' ' + nameIn[1] : name}</span>
@@ -132,9 +132,9 @@ function Review({ content, created, user, rating, course }) {
                 {reviewStar(rating)}
                 <p className='mx-2'>{rating}</p>
             </div>
-            <di className='text-pretty'>
+            <div className='text-pretty'>
                 <p>{content}</p>
-            </di>
+            </div>
 
         </div>
     )

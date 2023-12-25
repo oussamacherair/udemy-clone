@@ -5,7 +5,14 @@ import Feed from "./component/Feed"
 import Header from "./component/Header"
 import Reviews from "./component/Reviews"
 import Sponsers from "./component/Sponsers"
-
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Categories from "./component/Categories"
+import Topics from "./component/Topics"
+import BusinessUdemy from "./component/BusinessUdemy"
+import Stories from "./component/Stories"
+import Instractor from "./component/Instractor"
+import Footer from "./component/Footer"
 function App() {
 
                                                            
@@ -24,7 +31,13 @@ function App() {
             </div>
             <Courses/>
           </div>
+          <Categories/>
+          <Topics/>
+          <BusinessUdemy/>
+          <Stories/>
+          <Instractor/>
         </main>
+        <Footer/>
       </div>
 
   )
