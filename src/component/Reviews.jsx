@@ -8,42 +8,41 @@ import Slider from "react-slick";
 
 
 function Reviews() {
-    let carouselSettings = {
+
+    let settings = {
+        dots: false,
+        infinite: false,
         speed: 500,
-        centerMode: true,
-        centerPadding: "150px",
-        autoPlay: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        initialSlide: 0,
         responsive: [
             {
-                breakpoint: 1200,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    centerMode: true,
-                    centerPadding: "150px",
-                }
-            },
-            {
-                breakpoint: 992,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    centerMode: false,
-                    centerPadding: "0",
-                }
-            },
-            {
-                breakpoint: 768,
+                breakpoint: 1024,
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
-                    centerMode: false,
-                    centerPadding: "0",
+                    infinite: true,
+                    dots: false
                 }
             },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    initialSlide: 1
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
         ]
     };
-
     const { CoursesData } = useContext(DataContext)
     if (CoursesData.isLoading) return <h1>Loading data</h1>
     if (CoursesData.isError) return <h1>{error}</h1>
