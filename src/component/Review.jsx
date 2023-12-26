@@ -1,5 +1,5 @@
 import React from 'react'
-import Course from './Course';
+
 import { FaRegStar, FaStar, FaStarHalfAlt } from 'react-icons/fa';
 
 
@@ -9,6 +9,7 @@ const formatDate = (dateString) => {
     return date.toLocaleDateString('en-US', options);
 }
 function Review({ content, created, user, rating, course }) {
+    
     const reviewStar = (rate) => {
         let stars;
 
@@ -108,6 +109,7 @@ function Review({ content, created, user, rating, course }) {
 
         return stars;
     }
+
     let name = user.title.toUpperCase()
     let nameIn = name.split(' ')
     name = nameIn[0]
@@ -115,7 +117,7 @@ function Review({ content, created, user, rating, course }) {
     return (
         <div className='bg-white shadow-md mx-2 border-b-8 border-[#5624d0] py-5 px-9 min-h-52'>
             <div className='relative flex items-center'>     
-                <div className={nameIn.length>1?'h-12 w-12 flex justify-center items-center border-2 mx-2 border-[#5624d0] rounded-full':'hidden'}>
+                <div className={nameIn.length>1?'h-12 w-12 flex justify-center items-center border-2 mx-2 border-[#5624d0] rounded-full':'mx-10'}>
                     <span>{nameIn.length > 1 ? name[0].charAt(0) + nameIn[1].charAt(0) : ''}</span>
                 </div>
                 <div className='text-[#5624d0]'>
@@ -126,7 +128,7 @@ function Review({ content, created, user, rating, course }) {
                 <p className='absolute top-[-13px] right-[-27px] text-gray-500 text-sm'>{formatDate(created)}</p>
             </div>
             <div >
-                <p className='link text line-clamp-3 my-2'>{course}</p>
+                <p className='link text line-clamp-3 my-2'>{!!course? course:'Persoal development'}</p>
             </div>
             <div className='w-32 text-3xl my-3 flex items-center'>
                 {reviewStar(rating)}
