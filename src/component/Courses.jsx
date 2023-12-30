@@ -5,7 +5,7 @@ import DataContext from '../../Data/Contaxt';
 
   
 let settings = {
-    dots: true,
+    dots: false,
     infinite: false,
     speed: 500,
     slidesToShow: 4,

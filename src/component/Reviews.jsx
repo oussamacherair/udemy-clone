@@ -13,7 +13,7 @@ function Reviews() {
         dots: false,
         infinite: false,
         speed: 500,
-        slidesToShow: 1,
+        slidesToShow: 2,
         slidesToScroll: 1,
         initialSlide: 0,
         responsive: [
@@ -47,7 +47,7 @@ function Reviews() {
     if (CoursesData.isLoading) return <h1>Loading data</h1>
     if (CoursesData.isError) return <h1>{error}</h1>
     let ids = CoursesData.data.map(course => course.id)
-    let courseName = CoursesData.data.map(course => course.headline)
+    let courseName = CoursesData.data.map(course => course.headline).filter(course => course.headline !== '')
     const reviews = useQueries({
         queries: ids.map((id) => {
             return {
@@ -61,7 +61,7 @@ function Reviews() {
     if (reviews.some((query) => query.isError)) return <h1>Error fetching reviews</h1>;
     let reviewsData = reviews.flatMap(el => el.data).filter(el => el.content !== '' & el.content.length > 7)
     reviewsData.map((review, index) => { review.course = courseName[index], review })
-    console.log(courseName.map((el,i)=>console.log(el,i)))
+    reviewsData = reviewsData.slice(0, courseName.length)
 
     return (
         <div className='px-5 pt-10 bg-gray-100 my-8'>
