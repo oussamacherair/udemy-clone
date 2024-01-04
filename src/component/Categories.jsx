@@ -19,7 +19,7 @@ function Categories() {
             <div className='grid gap-4 grid-flow-dense grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
                 {Cats.map((cat, i) =>
                 (
-                    <Categorie Title={cat} Url={CatImages[i]} />
+                    <Categorie key={i} Title={cat} Url={CatImages[i]} />
                 ))}
             </div>
         </div>

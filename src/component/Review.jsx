@@ -9,7 +9,6 @@ const formatDate = (dateString) => {
     return date.toLocaleDateString('en-US', options);
 }
 function Review({ content, created, user, rating, course }) {
-    console.log(user)
     const reviewStar = (rate) => {
         let stars;
 
