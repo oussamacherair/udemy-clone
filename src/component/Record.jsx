@@ -9,7 +9,7 @@ import { MdOutlineOndemandVideo } from "react-icons/md";
 function AccordionDisabled({ data }) {
     const [open, setOpen] = React.useState(0);
     const handleOpen = (value) => setOpen(open === value ? 0 : value);
-    console.log(data)
+    
     return (
         <div className="p-5 my-4">
             <div className="bg-[#f7f9fa] border-none ">

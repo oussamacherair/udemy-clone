@@ -6,7 +6,7 @@ const headers = {
 };
 
 const fetchCourses = async () => {
-  const response = await axios.get(`https://www.udemy.com/api-2.0/courses/?page=2&page_size=12`, { headers: headers });
+  const response = await axios.get(`https://www.udemy.com/api-2.0/courses/?page=1&page_size=12`, { headers: headers });
   const { results } = response.data
   return results
 };

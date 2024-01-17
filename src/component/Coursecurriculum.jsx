@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom'
 
 import CourseCurriculumData from './CourseCurriculumData'
 import Record from './Record'
+import Coursesimilar from './Coursesimilar'
 
 function Coursecurriculum() {
     const getCourseCurriculum = async (couseId) => {
@@ -70,6 +71,7 @@ function Coursecurriculum() {
                 sectionNumber={ChapterNumber}
             />
             <Record data={ClassifiedData} />
+            <Coursesimilar primary_category={Course?.primary_category.title}/>
 
         </div>
 

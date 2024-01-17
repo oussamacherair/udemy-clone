@@ -49,7 +49,7 @@ const CustomPrevArrow = (props) => {
 
 
 function Coursers_Feed() {
-  console.log(renderArrows(), 'fail')
+  
   let CoursesData;
   const { isFetching, status, data: Categories } = useCategories([])
   const { data: Courses } = useCourses([])
