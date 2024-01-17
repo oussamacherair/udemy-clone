@@ -12,5 +12,7 @@ const fetchCourses = async () => {
 };
 
 export function useCourses() {
-  return useQuery({ queryKey: ['courses'], queryFn: fetchCourses, staleTime: Infinity });
+  return useQuery({ queryKey: ['courses'],
+   queryFn: fetchCourses, staleTime: Infinity });
 }
+

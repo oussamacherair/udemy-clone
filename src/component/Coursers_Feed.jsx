@@ -4,27 +4,57 @@ import Course from './Course';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { MdNavigateNext } from "react-icons/md"
+import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle } from "react-icons/io";
+
 const settings = {
   className: "center",
   infinite: true,
   centerPadding: "60px",
   slidesToShow: 5,
-  swipeToSlide: true,
-  nextArrow:<Coursers_Feed/>,
-  afterChange: function (index) {
-    console.log(
-      `Slider Changed to: ${index + 1}, background: #222; color: #bada55`
-    );
-  }
+  swipeToSlide: true, nextArrow: <CustomNextArrow />,
+  prevArrow: <CustomPrevArrow />,
 };
 
+renderArrows = () => (
+  <div className=" absolute z-50 bg-red-900">
+    <ButtonBase
+      className="bg-red-900"
+      onClick={() => this.slider.slickPrev()}
+    >
+      <IoIosArrowDropleftCircle />
+    </ButtonBase>
+    <ButtonBase
+      className="arrow-btn next"
+      onClick={() => this.slider.slickNext()}
+    >
+      <IoIosArrowDroprightCircle />
+    </ButtonBase>
+  </div>
+)
+const CustomNextArrow = (props) => {
+  return (
+    <div onClick={props.onClick}>
+      <IoIosArrowDroprightCircle />
+    </div>
+  );
+};
+
+const CustomPrevArrow = (props) => {
+  return (
+    <div onClick={props.onClick}>
+      <IoIosArrowDropleftCircle size={80} className=' absolute text-ora'/>
+    </div>
+  );
+};
+
+
 function Coursers_Feed() {
+  console.log(renderArrows(), 'fail')
   let CoursesData;
-  const { isFetching,status, data: Categories } = useCategories([])
+  const { isFetching, status, data: Categories } = useCategories([])
   const { data: Courses } = useCourses([])
   if (isFetching) return CoursesData = <Spinner />
-  
+
 
 
 
@@ -49,7 +79,8 @@ function Coursers_Feed() {
           <button className='px-3 py-2 border-2 border-black hover:bg-gray-100'>Explore Python</button>
         </div>
 
-        <div className='relative mt-10'>
+        <div className='relative mt-10 overflow-hidden'>
+          {this.renderArrows()}
           <Slider {...settings}>
 
             {

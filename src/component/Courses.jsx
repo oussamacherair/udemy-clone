@@ -2,6 +2,7 @@ import Course from './Course';
 import Slider from "react-slick";
 import { useContext } from 'react';
 import DataContext from '../../Data/Contaxt';
+import { NavLink } from 'react-router-dom';
 
   
 let settings = {
@@ -48,7 +49,9 @@ function Courses() {
             <Slider {...settings}>
                 {CoursesData.data.map(course =>
                 (
+                  <NavLink to={`${course.url}${course.id}`}>
                     <Course key={course.id} {...course} />
+                    </NavLink>
                 ))}
 
             </Slider>

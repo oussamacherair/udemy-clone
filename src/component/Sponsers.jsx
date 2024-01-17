@@ -2,7 +2,7 @@ import React from 'react'
 
 function Sponsers() {
     return (
-        <div className='px-5 py-20 text-center bg-gray-100 text-xl my-14'>
+        <div className='px-5 py-20 text-center bg-gray-100 text-xl'>
             <p className='text-lg line-clamp-2'>Trusted by over 15,000 companies and millions of learners around the world</p>
             <div className='grid px-10 grid-flow-row-dense gap-5  items-center justify-items-center grid-cols-4 lg:grid-cols-8 p-5 '>
                 <div>

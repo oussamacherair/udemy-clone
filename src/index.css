@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  box-sizing: border-box;
+}
 body {
   margin: 0;
 }
@@ -10,5 +13,29 @@ body {
     @apply cursor-pointer hover:text-[#5624d0]
   }
 }
-
-
+.slick-prev:before,.slick-next:before {
+  font-size: 2rem;
+  color: rgba(0, 0, 0, 0.566);
+}
+.slick-prev:before
+{
+  position: absolute;
+  right: 4px !important;
+}
+.slick-next{
+  right: 2px !important;
+}
+.slick-next:before{
+  position: absolute;
+  right: -33px;
+}
+.InnerHTMLClasses li
+{
+  padding: 0 .5rem;
+  margin-left: 1rem;
+  list-style: disc;
+}
+.InnerHTMLClasses p
+{
+  margin: .5rem 0rem;
+}

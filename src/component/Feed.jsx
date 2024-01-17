@@ -1,8 +1,10 @@
-
-import CategoriesApi from '../../api/CategoriesApi';
 import Courses from './Courses';
+import NavbarCats from './navbarCats';
 
 function Coursers_Feed() {
+
+
+
   return (
     <div className='p-5'>
       <div>
@@ -12,7 +14,7 @@ function Coursers_Feed() {
         <p className='text-xl my-4'>Choose from over 210,000 online video courses with new additions published every month</p>
       </div>
 
-      <CategoriesApi />
+      <NavbarCats style='text-sm px-2 py-2 mx-2 mb-2 font-bold text-gray-600 bg-gray-100 hover:text-black cursor-pointer' />
 
 
       <div className='border-2 mb-14 border-gray-300 p-12'>
