@@ -3,19 +3,30 @@ import axios from 'axios'
 import React from 'react'
 import Course from './Course'
 import { NavLink } from 'react-router-dom';
+import CoursesLoaders from './CoursesLoaders';
 const headers = {
     "Authorization": "Basic MnhoS2tPOEFNY1NnaDJlOEFMeUtxUG1xVENFREVWUjNubk9EQjFIcTpNbWhpaVpTNlhxQUxWRVRTME9BSE1vcWxLYVpKS29kZUllVFZIQkljNm9ZWnFZOUxvaGN5akRvdGQ1bGFOZ1oyT3B3bnZMejI2SVlaemlyYXAzR0c5Z2F2bVhHWGMzZXlFUjZPYXpOWVdGVmdNMjBVdGtiSGFGYTExVDNQaE9RdA=="
 };
-const getCoursesimilar = async (primary_category) => {
-    const response = await axios.get(`https://www.udemy.com/api-2.0/courses/?page=1&page_size=15&category=${primary_category}`, { headers: headers })
+const getCoursesimilar = async (primary_category, page = 1) => {
+    const response = await axios.get(`https://www.udemy.com/api-2.0/courses/?page=${page}&page_size=15&category=${primary_category}`, { headers: headers })
     const { results } = response.data
     return results
 }
 
-function Coursesimilar({ primary_category }) {
+function Coursesimilar({ primary_category, page }) {
     let Cat = encodeURIComponent(primary_category)
-    const { data: SimilarCourses, isLoading, isError, error } = useQuery({ queryKey: ['SimilarCourses', primary_category], queryFn: () => getCoursesimilar(Cat) })
-    if (isLoading) return <h1>Loading...</h1>
+    const { data: SimilarCourses, isLoading, isError, error } = useQuery({ queryKey: ['SimilarCourses', primary_category,page], queryFn: () => getCoursesimilar(Cat,page) })
+    if (isLoading) {
+        return <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
+           <CoursesLoaders/> 
+           <CoursesLoaders/>
+           <CoursesLoaders/>
+           <CoursesLoaders/>
+           <CoursesLoaders/>
+           <CoursesLoaders/>
+        </div>
+        
+    } 
     if (isError) return <h1>{error}</h1>
 
     return (

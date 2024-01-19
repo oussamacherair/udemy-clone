@@ -1,13 +1,15 @@
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 import CourseCurriculumData from './CourseCurriculumData'
 import Record from './Record'
 import Coursesimilar from './Coursesimilar'
-
+import Pagination from './Pagination'
+import CourseSideBar from './CourseSideBar'
 function Coursecurriculum() {
+    const [currentPage, setPageNumber] = useState(1)
     const getCourseCurriculum = async (couseId) => {
         const response = await axios.get(`https://www.udemy.com/api-2.0/courses/${couseId}/public-curriculum-items/?page=1&page_size=100`)
         const { results } = response.data
@@ -29,7 +31,13 @@ function Coursecurriculum() {
         queryKey: ['Course', courseid],
         queryFn: async () => await fetchCourse(courseid),
     })
-    if (curriculumData.isLoading & CourseData.isLoading) return <h1>Loading...</h1>
+    if (curriculumData.isLoading & CourseData.isLoading) {
+        return <div className="flex items-center justify-center h-screen">
+            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500 border-solid"></div>
+        </div>
+    }
+
+
     if (curriculumData.isError & CourseData.isError) return <h1>{JSON.stringify(curriculumData.error)}{JSON.stringify(CourseData.error)}</h1>
     let { data: Curriculum } = curriculumData
     let { data: Course } = CourseData
@@ -52,26 +60,37 @@ function Coursecurriculum() {
 
 
     return (
-        <div>
-            <CourseCurriculumData
-                title={Course?.title}
+        <div className='block lg:grid grid-flow-row-dense grid-cols-4 relative z-50'>
+            <div className='col-span-3 relative'>
+                <CourseCurriculumData
+                    title={Course?.title}
+                    image_480x270={Course?.image_480x270}
+                    primary_category={Course?.primary_category.title}
+                    description={Course?.description}
+                    sub_category={Course?.primary_subcategory.title}
+                    headline={Course?.headline}
+                    rating={Course?.avg_rating}
+                    reviews={Course?.num_reviews}
+                    students={Course?.num_subscribers}
+                    teacher={Course?.visible_instructors}
+                    created={Course?.created}
+                    local={Course?.locale}
+                    lectures={Course?.num_lectures}
+                    quizzes={Course?.num_quizzes}
+                    sectionNumber={ChapterNumber}
+                />
+                <Record data={ClassifiedData} />
+
+                <Coursesimilar primary_category={Course?.primary_category.title} page={currentPage} />
+
+            </div>
+            <CourseSideBar
                 image_480x270={Course?.image_480x270}
-                primary_category={Course?.primary_category.title}
-                description={Course?.description}
-                sub_category={Course?.primary_subcategory.title}
-                headline={Course?.headline}
-                rating={Course?.avg_rating}
-                reviews={Course?.num_reviews}
-                students={Course?.num_subscribers}
-                teacher={Course?.visible_instructors}
-                created={Course?.created}
-                local={Course?.locale}
                 lectures={Course?.num_lectures}
                 quizzes={Course?.num_quizzes}
-                sectionNumber={ChapterNumber}
-            />
-            <Record data={ClassifiedData} />
-            <Coursesimilar primary_category={Course?.primary_category.title}/>
+                sectionNumber={ChapterNumber} />
+            <Pagination updatePage={setPageNumber} />
+            <div className='lg:block hidden absolute top-0 w-full bg-[#2d2f31] h-[363px] overlay -z-50'></div>
 
         </div>
 
