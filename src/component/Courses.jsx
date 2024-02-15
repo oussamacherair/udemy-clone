@@ -44,7 +44,7 @@ function Courses() {
     const {CoursesData}=useContext(DataContext)
     if (CoursesData.isLoading) return <h1>Loading courses</h1>;
     if (CoursesData.isError) return <h1>{error.message}</h1>;
-    console.log(CoursesData)
+   
     return (
         <>
             <Slider {...settings}>

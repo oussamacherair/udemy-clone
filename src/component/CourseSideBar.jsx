@@ -12,7 +12,7 @@ function CourseSideBar({ image_480x270, lectures, quizzes, sectionNumber }) {
     const random_number = (max, min) => Math.floor(Math.random() * (max - min + 1)) + min;
 
     return (
-        <div className=' absolute lg:block hidden top-12 right-12 bg-white border-2 border-white z-50 w-1/4 shadow-md'>
+        <div className=' absolute lg:block hidden top-12 right-12 bg-slate-900	  border-2 border-white w-1/4 shadow-md'>
             <div>
                 <div className='relative'>
                     <img className='w-full h-auto ' src={image_480x270} alt={image_480x270} />

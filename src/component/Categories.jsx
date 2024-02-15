@@ -8,7 +8,7 @@ import Marketing from '../assets/marketing.jpg'
 import Music from '../assets/music.jpg'
 import Personal from '../assets/personal-development.jpg'
 import Photography from '../assets/photography.jpg'
-
+import { NavLink } from 'react-router-dom'
 let Cats = ['Business', 'Design', 'Development', 'IT and Software', 'Marketing', 'Music', 'Personal Development', 'Photography']
 let CatImages = [Business, Design, Development, IT, Marketing, Music, Personal, Photography]
 
@@ -19,7 +19,10 @@ function Categories() {
             <div className='grid gap-4 grid-flow-dense grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
                 {Cats.map((cat, i) =>
                 (
-                    <Categorie key={i} Title={cat} Url={CatImages[i]} />
+                    <NavLink to={`courses/category/${cat}`} key={i}>
+                        <Categorie key={i} Title={cat} Url={CatImages[i]} />
+
+                    </NavLink>
                 ))}
             </div>
         </div>

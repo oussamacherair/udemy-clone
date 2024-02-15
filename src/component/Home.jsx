@@ -17,7 +17,7 @@ function Home() {
             <Banner />
             <Sponsers />
             <Feed />
-            <Reviews />
+           
             <div className="px-8 py-4">
                 <div className="my-4">
                     <h1 className="text-bold text-3xl">Learners are viewing</h1>

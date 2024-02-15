@@ -31,7 +31,7 @@ function Sidebar({ name, email }) {
         }
     }
     return (
-        <Card className=" p-4 shadow-xl shadow-blue-gray-900/5 border-2 absolute -left-56 z-50 ">
+        <Card className=" p-4 shadow-xl shadow-blue-gray-900/5 border-2 absolute -left-72 top-16 z-50 ">
             <div className="mb-2 p-4 relative">
                 <Typography variant="h5" color="blue-gray" >
                     <h3>{name}</h3>

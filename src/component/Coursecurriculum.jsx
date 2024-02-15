@@ -60,7 +60,7 @@ function Coursecurriculum() {
 
 
     return (
-        <div className='block lg:grid grid-flow-row-dense grid-cols-4 relative z-50'>
+        <div className='block lg:grid grid-flow-row-dense grid-cols-4 relative'>
             <div className='col-span-3 relative'>
                 <CourseCurriculumData
                     title={Course?.title}
@@ -90,7 +90,6 @@ function Coursecurriculum() {
                 quizzes={Course?.num_quizzes}
                 sectionNumber={ChapterNumber} />
             <Pagination updatePage={setPageNumber} />
-            <div className='lg:block hidden absolute top-0 w-full bg-[#2d2f31] h-[363px] overlay -z-50'></div>
 
         </div>
 

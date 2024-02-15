@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { FaGoogle } from "react-icons/fa";
+
 import Google from '../assets/google.png'
 import { FaFacebook } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
@@ -12,6 +12,7 @@ function logIn() {
   let navigate = useNavigate()
   let [email, getEmail] = useState('')
   let [password, getPassword] = useState('')
+  const SignUp=()=> navigate('/SignUp')
   const GoogleSign = async () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
@@ -32,6 +33,7 @@ function logIn() {
   const TwitterSignIn = async () => {
     try {
       const result = await signInWithPopup(auth, TwiterProvider)
+      navigate('/');
     }
     catch (error) {
       console.log(error)
@@ -83,7 +85,8 @@ function logIn() {
           <h1 className='text-purple-600 text-xl underline capitalize font-bold text-center p-4 cursor-pointer'>
             <span className='text-black text-sm no-underline'>or</span> forget Password</h1>
         </div>
-        <p className='text-center'>Don't have an account?<span className='text-purple-700 underline capitalize font-bold cursor-pointer'>Sign up
+
+        <p className='text-center'>Don't have an account?<span onClick={SignUp} className='text-purple-700 underline capitalize font-bold cursor-pointer'>Sign up
           <br />Log in with your organization</span> </p>
       </div>
     </div>
