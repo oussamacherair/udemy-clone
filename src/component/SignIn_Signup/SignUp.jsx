@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { auth, db } from "../firebase.config";
+import { auth } from "../../firebase.config";
 import {
   createUserWithEmailAndPassword,
   updateProfile,
-  sendEmailVerification
+  sendEmailVerification,
 } from "firebase/auth";
-import { collection } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 
 function logIn() {
@@ -14,8 +13,7 @@ function logIn() {
   const [uploadImage, setUploadImage] = useState("");
   const [email, getEmail] = useState("");
   const [password, getPassword] = useState("");
-  const collectionRef = collection(db, "users");
-  
+
   const Submit = e => {
     e.preventDefault();
     createUserWithEmailAndPassword(auth, email, password)
@@ -79,7 +77,7 @@ function logIn() {
           />
           <input
             type="submit"
-            value="Log In"
+            value="Sign In"
             className="text-xl  px-4 py-4 bg-[#a435f0] font-bold text-md cursor-pointer text-white hover:bg-purple-600"
           />
         </form>

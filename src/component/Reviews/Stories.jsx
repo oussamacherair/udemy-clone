@@ -1,7 +1,7 @@
 import React from 'react'
 import { udemyStories } from './StoriesData'
 import { MdNavigateNext } from "react-icons/md";
-import Story from './Story.jsx'
+import Story from './Story'
 import Slider from 'react-slick';
 
 function Stories() {

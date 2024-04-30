@@ -1,19 +1,26 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import CourseCurriculumData from "./CourseCurriculumData";
-import Record from "./Record";
+import Record from "../Reviews/Record";
 import Coursesimilar from "./Coursesimilar";
-import Pagination from "./Pagination";
+import Pagination from "../navigation/Pagination";
 import CourseSideBar from "./CourseSideBar";
-import { auth } from "../firebase.config";
-import { getCartCourses, getPaidCourses } from "../../Data/CoursesFrontendApi";
+import {
+  getCartCourses,
+  getPaidCourses
+} from "../../../Data/CoursesFrontendApi";
+import DataContext from "../../../Data/Contaxt";
+
 function Coursecurriculum() {
+  const { User } = useContext(DataContext);
+
   const [currentPage, setPageNumber] = useState(1);
   let { courseid } = useParams();
-  const user = auth.currentUser.email;
-
+  const user = User ? User.email : null;
+  const emailVerified = user ? User.emailVerified : null;
+  
   const {
     data: CartCoursesIDS,
     isLoading: loadingIds,
@@ -25,7 +32,8 @@ function Coursecurriculum() {
     queryFn: async () =>
       await getCartCourses(user)
         .then(res => res.data)
-        .catch(err => err.message)
+        .catch(err => err.message),
+        enabled:!!User
   });
 
   const {
@@ -38,7 +46,8 @@ function Coursecurriculum() {
     queryFn: async () =>
       getPaidCourses(user)
         .then(res => res.data)
-        .catch(err => err.message)
+        .catch(err => err.message),
+        enabled:!!User
   });
 
   const {
@@ -102,18 +111,22 @@ function Coursecurriculum() {
     }
   });
 
-  
-   const ids = () => {
-    let cartIds=CartCoursesIDS.length?CartCoursesIDS.map(course => +course.id):[]
-    let paidIds=PaidCoursesIDS.length?PaidCoursesIDS.map(course => +course.id):[]
+  const ids = () => {
+    let cartIds =
+      CartCoursesIDS && CartCoursesIDS?.length
+        ? CartCoursesIDS.map(course => +course.id)
+        : [];
+    let paidIds =
+      PaidCoursesIDS && PaidCoursesIDS?.length
+        ? PaidCoursesIDS.map(course => +course.id)
+        : [];
     if (cartIds.length || paidIds.length) {
       return [...cartIds, ...paidIds];
-  }
+    }
 
-    return []
-}
-
-
+    return [];
+  };
+console.log(User)
   return (
     <div className="block lg:grid grid-flow-row-dense grid-cols-4 relative">
       <div className="col-span-3 relative">
@@ -136,6 +149,7 @@ function Coursecurriculum() {
           sectionNumber={ChapterNumber}
           dbCourses={ids()}
           reloadDb={refetch}
+          Verified={emailVerified}
         />
         <Record data={ClassifiedData} />
 
@@ -156,6 +170,7 @@ function Coursecurriculum() {
         id={CourseDetailedData?.id}
         dbCourses={ids()}
         reloadDb={refetch}
+        Verified={emailVerified}
       />
 
       <Pagination updatePage={setPageNumber} />

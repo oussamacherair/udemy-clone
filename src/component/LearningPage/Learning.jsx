@@ -1,18 +1,11 @@
 import React from "react";
-import { BsThreeDotsVertical } from "react-icons/bs";
-import {
-  Menu,
-  MenuHandler,
-  MenuList,
-  MenuItem,
-  Button
-} from "@material-tailwind/react";
-import { auth } from "../firebase.config";
+import {Menu,MenuHandler,MenuList,MenuItem,Button} from "@material-tailwind/react";
+import { auth } from "../../firebase.config";
 import { useQuery } from "@tanstack/react-query";
 import LearningCourse from "./LearningCourse";
-import Sponsers from "./Sponsers";
+import Sponsers from "../Reviews/Sponsers";
 import { useNavigate } from "react-router";
-import { getPaidCourses } from "../../Data/CoursesFrontendApi";
+import { getPaidCourses } from "../../../Data/CoursesFrontendApi";
 
 function Learning() {
   let navigate=useNavigate()

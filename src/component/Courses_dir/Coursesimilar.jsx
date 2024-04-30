@@ -2,8 +2,8 @@ import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import React from 'react'
 import Course from './Course'
-import { NavLink, useParams } from 'react-router-dom';
-import { CoursesLoaders } from './CoursesLoaders';
+import { NavLink} from 'react-router-dom';
+import { CoursesLoaders } from '../loaders/CoursesLoaders';
 
 
 

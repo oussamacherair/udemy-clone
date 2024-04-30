@@ -1,5 +1,5 @@
 import React from 'react'
-import { reviewStar } from '../../BackendData/functions/functions';
+import { reviewStar } from '../../../BackendData/functions/functions';
 import { NumericFormat } from 'react-number-format'
 import { FaTag } from "react-icons/fa";
 

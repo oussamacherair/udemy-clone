@@ -1,7 +1,7 @@
 
 import { NumericFormat } from 'react-number-format'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
-import { reviewStar } from "../../BackendData/functions/functions";
+import { reviewStar } from "../../../BackendData/functions/functions";
     
 function Course({ headline, id, image_480x270, url, visible_instructors, price, status }) {
 

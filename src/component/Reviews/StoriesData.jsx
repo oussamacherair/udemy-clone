@@ -1,7 +1,7 @@
-import stevans from '../assets/people/Ian_Stevens.png'
-import Ismaeel from '../assets/people/Ismaeel_Ameen.png'
-import James from '../assets/people/James_Hemgen.jpeg'
-import Karen from '../assets/people/Karen_hunter.png'
+import stevans from '../../assets/people/Ian_Stevens.png'
+import Ismaeel from '../../assets/people/Ismaeel_Ameen.png'
+import James from '../../assets/people/James_Hemgen.jpeg'
+import Karen from '../../assets/people/Karen_hunter.png'
 
 
 export const udemyStories = [

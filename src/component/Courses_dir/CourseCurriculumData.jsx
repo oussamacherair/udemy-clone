@@ -17,10 +17,10 @@ import { FaInfoCircle } from "react-icons/fa";
 import { GrLanguage } from "react-icons/gr";
 import { MdSubtitles, MdOutlineOndemandVideo } from "react-icons/md";
 import { NumericFormat } from "react-number-format";
-import Sponsers from "./Sponsers";
+import Sponsers from "../Reviews/Sponsers";
 import { doc,collection,addDoc} from "@firebase/firestore";
-import { db, auth } from "../firebase.config";
-import { price } from "../../BackendData/functions/functions";
+import { db, auth } from "../../firebase.config";
+import { price } from "../../../BackendData/functions/functions";
 
 function CourseCurriculumData({
   id,

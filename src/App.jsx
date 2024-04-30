@@ -1,20 +1,18 @@
 
-
 import Header from "./component/Header"
 import Footer from "./component/Footer"
-import SignUp from './component/SignUp'
-import { BrowserRouter, Route, Routes,} from 'react-router-dom'
+import SignUp from './component/SignIn_Signup/SignUp'
+import {Route, Routes,} from 'react-router-dom'
 import Home from "./component/Home";
-import LogIn from './component/log-in'
-import CategorieCourses from "./CategorieCourses";
-import Coursecurriculum from "./component/Coursecurriculum";
-import Cart from './component/Cart'
-import Learning from './component/Learning'
+import LogIn from './component/SignIn_Signup/log-in'
+import CategorieCourses from "./component/Filters/CategorieCourses";
+import Coursecurriculum from "./component/Courses_dir/Coursecurriculum";
+import Cart from './component/Cart/Cart'
+import Learning from './component/LearningPage/Learning'
 function App() {
   
   return (
-    <div className=' '>
-      <BrowserRouter>
+    <div className=''>
 
         <Header />
 
@@ -31,7 +29,6 @@ function App() {
           <Route path='/Cart' element={<Cart/>}/>
         </Routes>
         <Footer />
-      </BrowserRouter>
     </div>
 
 

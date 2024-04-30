@@ -7,8 +7,8 @@ import { GoInfinity } from "react-icons/go";
 import { IconButton, Button } from "@material-tailwind/react";
 import { FaTrophy, FaHeart } from "react-icons/fa";
 import { doc, collection, addDoc } from "firebase/firestore";
-import { auth, db } from "../firebase.config";
-import { price } from "../../BackendData/functions/functions";
+import { auth, db } from "../../firebase.config";
+import { price } from "../../../BackendData/functions/functions";
 function CourseSideBar({
   image_480x270,
   lectures,
@@ -20,7 +20,8 @@ function CourseSideBar({
   sectionNumber,
   reviews,
   dbCourses,
-  reloadDb
+  reloadDb,
+  Verified
 }) {
   let [hour, min] = String(lectures / 10)
     ?.replace(".", "")
@@ -47,18 +48,17 @@ function CourseSideBar({
         sectionNumber,
         reviews
       });
-      reloadDb()
+      reloadDb();
     } catch (err) {
       alert(err);
     }
   };
 
   const checkCourse = ID => {
-    console.log(dbCourses)
     if (dbCourses.some(course_id => ID == course_id)) return true;
     return false;
   };
- 
+
   return (
     <div className="absolute lg:block hidden top-12 right-12 bg-slate-900	border-2 border-white w-1/4 shadow-md">
       <div>
@@ -82,32 +82,38 @@ function CourseSideBar({
             </h3>
           </div>
           <div>
-            <div
-              className={`flex flex-row items-center justify-between space-x-2 ${
-                checkCourse(id) ? "cursor-not-allowed" : "cursor-pointer"
-              }`}
-            >
-              <Button
-                onClick={() => addCoursesToCart(id)}
-                disabled={checkCourse(id)}
-                size="lg"
-                className="bg-[#5624d0] rounded-none flex-grow   w-full md:w-auto"
+            {Verified ? (
+              <div
+                className={`flex flex-row items-center justify-between space-x-2 ${
+                  checkCourse(id) ? "cursor-not-allowed" : "cursor-pointer"
+                }`}
               >
-                Add to Cart
-              </Button>
-              <IconButton
-                size="lg"
-                className="rounded-none text-lg"
-                variant="outlined"
-              >
-                <FaHeart />
-              </IconButton>
-            </div>
+                <Button
+                  onClick={() => addCoursesToCart(id)}
+                  disabled={checkCourse(id)}
+                  size="lg"
+                  className="bg-[#5624d0] rounded-none flex-grow   w-full md:w-auto"
+                >
+                  Add to Cart
+                </Button>
+                <IconButton
+                  size="lg"
+                  className="rounded-none text-lg"
+                  variant="outlined"
+                >
+                  <FaHeart />
+                </IconButton>
+              </div>
+            ) : (
+              <p>Please verify you email</p>
+            )}
 
             <Button
               className=" my-4 w-full focus:outline-none rounded-none text-lg"
               variant="outlined"
               size="lg"
+              onClick={() => addCoursesToCart(id)}
+              disabled={checkCourse(id)}
             >
               Buy Now
             </Button>

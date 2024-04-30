@@ -7,7 +7,7 @@ import LanguageFilter from './languageFilter';
 
 import { Accordion, AccordionHeader, AccordionBody } from "@material-tailwind/react";
 import { IoIosArrowUp } from "react-icons/io";
-import { SubCatgoriesAPi } from '../Data/categoriesFrontendapi';
+import { SubCatgoriesAPi } from '../../../Data/categoriesFrontendapi';
 
 function CourseFilter({duration,price,subCategory,level,filterprops,language}) {
     // subcategory api

@@ -1,12 +1,12 @@
 import React from "react";
-import EmptyCart from "../assets/empty-shopping.jpg";
+import EmptyCart from "../../assets/empty-shopping.jpg";
 import { Button } from "@material-tailwind/react";
 
 import { useQuery } from "@tanstack/react-query";
-import { auth, db } from "../firebase.config";
-import CourseCart from "./CourseCart";
+import { auth, db } from "../../firebase.config";
+import CourseCart from "../Courses_dir/CourseCart";
 import { doc, deleteDoc } from "firebase/firestore";
-import { getCartCourses } from "../../Data/CoursesFrontendApi";
+import { getCartCourses } from "../../../Data/CoursesFrontendApi"
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
 

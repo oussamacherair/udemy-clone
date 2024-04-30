@@ -1,8 +1,7 @@
-import Courses from './Courses';
-import NavbarCats from './navbarCats';
+import Courses from '../Courses_dir/Courses';
+import NavbarCats from '../navigation/navbarCats';
 
 function Coursers_Feed() {
-
 
 
   return (

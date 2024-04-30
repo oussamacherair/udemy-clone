@@ -9,8 +9,8 @@ import {
 
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { Link } from 'react-router-dom'
-import { TextBoxLoading } from './CoursesLoaders';
-import { SubCatgoriesAPi } from '../../Data/categoriesFrontendapi';
+import { TextBoxLoading } from '../loaders/CoursesLoaders';
+import { SubCatgoriesAPi } from '../../../Data/categoriesFrontendapi';
 
 function categoriesNavbar({ mainTitle, }) {
     let Sublist

@@ -2,10 +2,10 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Link, NavLink, useParams } from 'react-router-dom';
-import Course from './component/Course';
-import CourseFilter from './CourseFilter';
-import SortCourses from './SortCourses';
-import { CourseCategoryLoader, Filterloaders, TextBoxLoading } from './component/CoursesLoaders';
+import Course from '../Courses_dir/Course';
+import CourseFilter from '../Filters/CourseFilter';
+import SortCourses from '../Filters/SortCourses';
+import { CourseCategoryLoader, Filterloaders, TextBoxLoading } from '../loaders/CoursesLoaders';
 import { Button } from '@material-tailwind/react';
 
 let Clickedfilter = { id: 1 };

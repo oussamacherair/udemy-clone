@@ -11,13 +11,12 @@ import {
 
 import {
     BsFillBarChartFill,
-    BsFillBagFill,
     BsFillInboxFill,
     BsFillPersonFill,
     BsGearFill,
     BsPower,
 } from "react-icons/bs";
-import { auth } from "../firebase.config";
+import { auth } from "../../firebase.config";
 import { useNavigate } from "react-router-dom";
 import { FaChalkboardTeacher } from "react-icons/fa";
 

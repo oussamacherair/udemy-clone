@@ -1,7 +1,7 @@
 import Course from './Course';
 import Slider from "react-slick";
 import { useContext } from 'react';
-import DataContext from '../../Data/Contaxt';
+import DataContext from '../../../Data/Contaxt';
 import { NavLink } from 'react-router-dom';
 
 

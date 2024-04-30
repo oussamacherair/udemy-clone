@@ -4,9 +4,9 @@ import { GrLanguage } from "react-icons/gr";
 import { Avatar } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import NavbarCats from "./navbarCats";
-import Sidebar from "./sidebar";
-import CategorieNavBar from "./categoriesNavbar";
+import NavbarCats from "./navigation/navbarCats";
+import Sidebar from "./navigation/sidebar";
+import CategorieNavBar from "./navigation/categoriesNavbar";
 import DataContext from "../../Data/Contaxt";
 
 function Header() {

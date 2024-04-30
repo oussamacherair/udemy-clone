@@ -1,6 +1,6 @@
 import React from 'react'
 import { TopicsData } from './TopicsData'
-import Topic from './Topic.jsx'
+import Topic from './Topic'
 
 
 function Topics() {
