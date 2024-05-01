@@ -16,7 +16,7 @@ dotenv.config();
 
 const stripeInstance = stripe(process.env.VITE_Stripe_Secret_Key);
 const app = express();
-
+console.log(process.env.VITE_Stripe_Secret_Key)
 app.use(express.json());
 
 
