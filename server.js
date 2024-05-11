@@ -9,14 +9,12 @@ import dotenv from 'dotenv'
 import { Permission } from './Permissions.js'
 import admin from 'firebase-admin'
 import { doc, deleteDoc } from "firebase/firestore";
-import axios from 'axios';
 
 
 dotenv.config();
 
 const stripeInstance = stripe(process.env.VITE_Stripe_Secret_Key);
 const app = express();
-console.log(process.env.VITE_Stripe_Secret_Key)
 app.use(express.json());
 
 

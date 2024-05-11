@@ -44,7 +44,7 @@ function CategorieCourses() {
 
     if (CourseLoading) {
         return (
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-4 pt-10'>
+            <div className='grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-4 pt-10'>
                 <div className='col-span-1 md:col-span-2 lg:col-span-4'>
                     <TextBoxLoading />
                 </div>
@@ -82,19 +82,20 @@ function CategorieCourses() {
     }
 
     return (
-        <div className='py-4 px-4 grid grid-flow-row-dense grid-col-12'>
-            <div>
+        <div className='py-4 px-4 grid grid-flow-row-dense grid-cols-12'>
+            <div className='col-span-12'>
                 {courseSubCategory ? <h1 className='p-4 text-xl'>{`${courseCategory} / ${courseSubCategory}`} Courses</h1> : <h1 className='p-4 text-xl'>{courseCategory} Courses</h1>}
                 <h2>Courses to get you started</h2>
             </div>
-            <div className='grid grid-flow-row-dense md:grid-cols-3 lg:grid-cols-4 gap-4'>
-                <div className='col-span-3 lg:col-span-4'>
+            <div className='grid grid-cols-12 col-span-12  grid-flow-row-dense gap-x-8'>
+                <div className='col-span-12'>
                     <SortCourses order={setOrder} />
+                    <p></p>
                 </div>
-                <div className='col-span-1'>
+                <div className='col-span-12 md:col-span-4'>
                     <CourseFilter filterprops={Clickedfilter} duration={setDuration} price={setPrice} level={setLevel} subCategory={setCategory} language={setlanguage} />
                 </div>
-                <div className='col-span-3 lg:col-span-4'>
+                <div className='col-span-12 lg:col-span-7'>
                     {CategoryCoursesList.data?.map(({ headline, id, image_480x270, url, visible_instructors, price_detail }) => (
                         <NavLink className='pr-4' to={`${url}${id}`} key={id}>
                             <Course status={CategoryCoursesStatus} headline={headline} id={id} image_480x270={image_480x270} url={url} visible_instructors={visible_instructors} price={price_detail} />

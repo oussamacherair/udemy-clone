@@ -11,12 +11,12 @@ import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
 
 const stripePromise = loadStripe(import.meta.env.VITE_Stripe_Publick_Key);
-
 function Cart() {
   const user = auth?.currentUser?.email;
   let { data: CartCourses, isLoading, isError, error, refetch } = useQuery({
     queryKey: ["CartCourses", user],
-    queryFn: async () => await getCartCourses(user).then(res => res.data)
+    queryFn: async () => await getCartCourses(user).then(res => res.data),
+    staleTime:10000
   });
 
   if (isLoading) {
@@ -141,7 +141,7 @@ function Cart() {
       >
         <div className="p-4">
           <h1 className="text-gray-600 font-bold py-4 text-2xl">Total:</h1>
-          <h2 className="py-4 text-[2rem]">${TotalPrice}</h2>
+          <h2 className="py-4 text-[2rem]">${TotalPrice.toFixed(2)}</h2>
           <Button
             color="purple"
             className="rounded-none px-4 w-full text-lg"

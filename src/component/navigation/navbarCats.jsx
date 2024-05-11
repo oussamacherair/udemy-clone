@@ -3,7 +3,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { CategoriesApi } from '../../../Data/categoriesFrontendapi';
 
-function NavbarCats({ style, size, getCategory }) {
+function NavbarCats({ style, size, getCategory,viewport_sm}) {
 
   let { data: Cats, isError: CatError, isLoading: CatLoading, error: CatErrormsg } = CategoriesApi();
   if (CatLoading) return <h1>Loading...</h1>;
@@ -13,7 +13,7 @@ function NavbarCats({ style, size, getCategory }) {
 
 
   return (
-    <div className='hidden md:block'>
+    <div className=' hidden md:block'>
       {size ? (
         <div className='flex justify-center flex-row flex-wrap flex-start'>
           {Cats?.slice(0, size).map((cat, i) => (
@@ -23,10 +23,10 @@ function NavbarCats({ style, size, getCategory }) {
           ))}
         </div>
       ) : (
-        <div className='flex flex-row flex-wrap'>
+        <div className={viewport_sm?'font-bold':'flex flex-row flex-wrap'}>
           {Cats?.map((cat, i) => (
             <NavLink className={`${style}`} key={i} to={`Courses/Category/${encodeURIComponent(cat.title)}`}>
-              <p>{cat.title}</p>
+              <p className='link'>{cat.title}</p>
             </NavLink>
           ))}
         </div>

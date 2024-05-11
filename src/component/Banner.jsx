@@ -51,7 +51,7 @@ function Banner() {
                             <Button className='rounded-none p-4 text-xl normal-case'>Request a demo</Button>
                         </CardFooter>
 
-                        <div className='flex items-center flex-grow border px-2 h-16 rounded-none border-black'>
+                        <div className='flex py-2 items-center flex-grow border px-2 h-16 rounded-none border-black'>
                             <div>
                                 <AiOutlineSearch className='text-2xl' />
                             </div>
@@ -90,12 +90,12 @@ function Banner() {
                             </Typography>
                         </CardBody>
 
-                        <div className='mt-5 flex items-center flex-grow border px-2 h-16 rounded-none border-black'>
+                        <div className='mt-5 py-2 flex items-center flex-grow border px-2 h-16 rounded-none border-black'>
                             <div>
                                 <AiOutlineSearch className='text-2xl' />
                             </div>
 
-                            <input type="text" placeholder='What do you want to learn' className='px-3 rounded-full h-full w-6 flex-grow flex-shrink focus:outline-none' />
+                            <input type="text" placeholder='What do you want to learn' className='px-3 rounded-full  h-full w-6 flex-grow flex-shrink focus:outline-none' />
                         </div>
 
                     </Card>

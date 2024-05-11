@@ -16,7 +16,27 @@ export function SubCatgoriesAPi() {
         queryKey: ['SubCategories'],
         queryFn: async ()=> await axios.get('/api/Subcategories')
         .then((response)=> response.data),
-        staleTime: Infinity
+        staleTime: Infinity,
     })
     return subCats
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//https://www.thumbzilla.com/tags/anime-big-ass

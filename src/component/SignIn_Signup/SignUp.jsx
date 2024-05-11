@@ -13,7 +13,7 @@ function logIn() {
   const [uploadImage, setUploadImage] = useState("");
   const [email, getEmail] = useState("");
   const [password, getPassword] = useState("");
-
+  const [FormError,setFormError]=useState("")
   const Submit = e => {
     e.preventDefault();
     createUserWithEmailAndPassword(auth, email, password)
@@ -28,16 +28,18 @@ function logIn() {
         getuserName("");
         getEmail("");
         getPassword("");
+        setUploadImage("")
         navigate("/");
       })
       .catch(error => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        getuserName("");
+        getEmail("");
+        getPassword("");
+        setUploadImage("")
+        setFormError(error.message)
       });
   };
-
-  return (
+    return (
     <div className="p-10 mx-auto">
       <div className="w-full md:w-80 mx-auto">
         <h1 className="text-3xl font-black py-4">Sign Up</h1>
@@ -47,19 +49,20 @@ function logIn() {
           className="flex flex-col mt-2 mb-4 w-full md:min-w-92"
           onSubmit={e => Submit(e)}
         >
+          <p>{FormError}</p>
           <input
             value={userName}
             onChange={e => getuserName(e.target.value)}
             type="text"
             placeholder="Full name"
-            className="  px-4 py-4 border-2 border-black font-bold text-md cursor-pointer hover:bg-gray-100"
+            className=" px-4 py-4 border-2 border-black font-bold text-md cursor-pointer hover:bg-gray-100"
           />
           <input
             value={uploadImage}
             onChange={e => setUploadImage(e.target.value)}
             type="url"
             placeholder="Enter you Photo url"
-            className="  px-4 py-4 border-2 border-black font-bold text-md cursor-pointer hover:bg-gray-100"
+            className=" my-4 px-4 py-4 border-2 border-black font-bold text-md cursor-pointer hover:bg-gray-100"
           />
           <input
             value={email}

@@ -8,7 +8,18 @@ import NavbarCats from "./navigation/navbarCats";
 import Sidebar from "./navigation/sidebar";
 import CategorieNavBar from "./navigation/categoriesNavbar";
 import DataContext from "../../Data/Contaxt";
-
+import {
+  Drawer,
+  Button,
+  Typography,
+  IconButton,
+  List,
+  ListItem,
+  ListItemPrefix,
+  ListItemSuffix,
+  Chip
+} from "@material-tailwind/react";
+import DrawerBody from "./Filters/Drawer";
 function Header() {
   let navigate = useNavigate();
   const [isSidebarOpen, setToggle] = useState(false);
@@ -16,9 +27,10 @@ function Header() {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [SearchedTopic, setSearchedTopic] = useState("");
   const [navbarStatus, setNavbarStatus] = useState(false);
-
   const { User } = useContext(DataContext);
-
+  const [open, setOpen] = useState(false);
+  const openDrawer = () => setOpen(true);
+  const closeDrawer = () => setOpen(false);
 
   const logIn = () => {
     navigate("/LogIn");
@@ -53,19 +65,19 @@ function Header() {
       navigate(`Courses/Category/search/${SearchedTopic}`);
     return;
   };
-const Client=User
+  const Client = User;
   return (
-    <header className="flex flex-col p-2 md:px-4 md:py-4 shadow-bottom">
+    <header className="flex flex-col p-2 md:px-4 md:py-4 shadow-bottom ">
       <div
         className={
           !!Client
-            ? ` flex items-center justify-around space-x-11 ${
+            ? ` flex justify-between items-center  lg:justify-around   ${
                 navbarStatus ? "" : "lg:border-b-2 pb-4 md:mb-3"
               }`
             : "flex items-center justify-around space-x-11"
         }
       >
-        <div className="flex items-center space-x-4 ">
+        <div className="flex items-center space-x-4 justify-self-start  ">
           <Link to="/">
             <img
               src="https://www.udemy.com/staticx/udemy/images/v7/logo-udemy.svg"
@@ -74,15 +86,26 @@ const Client=User
               onClick={handleImageClick}
             />
           </Link>
+          <div className='block lg:hidden'>
+            <div>
+              <Button onClick={openDrawer} className='rounded-none bg-white text-black shadow-none text-xl p-0 hover:shadow-none'>Categories</Button>
+             <DrawerBody drawerOpen={open} close={closeDrawer}/>
+            </div>
+            
+          </div>
           <div>
-            <h1 className="link hidden md:flex">Categories</h1>
+            <h1 className="link hidden lg:block">Categories</h1>
           </div>
         </div>
 
         {/* left mid*/}
-        <div className="flex-grow hidden md:block">
+        <div className="flex-grow hidden lg:block max-w-screen-2xl">
           <div className="flex border-2 border-black rounded-full h-20 min-w-96 relative">
-            <form action="" className='w-full' onSubmit={e => getCourseByName(SearchedTopic, e)}>
+            <form
+              action=""
+              className="w-full"
+              onSubmit={e => getCourseByName(SearchedTopic, e)}
+            >
               <div>
                 <AiOutlineSearch
                   onClick={() => searchCourseByName(SearchedTopic)}
@@ -102,7 +125,6 @@ const Client=User
 
         {/* left right*/}
 
-        
         <div className="flex space-x-4 items-center pr-4 justify-around">
           <div className=" md:flex">
             <AiOutlineShoppingCart

@@ -96,7 +96,7 @@ function Learning() {
             />
           ))
         ) : (
-          <div className='flex flex-col justify-center items-center h-96'>
+          <div className='flex flex-col justify-center items-center h-96 p-4'>
             <h1 className="font-bold text-2xl">
               Start learning from over 210,000 courses today.
             </h1>
